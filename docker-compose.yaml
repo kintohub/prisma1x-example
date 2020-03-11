@@ -1,0 +1,33 @@
+version: '3'
+services:
+  prisma:
+    build: .
+    restart: always
+    depends_on:
+      - "postgres"
+    ports:
+      - '4466:4466'
+    environment:
+      SLOW_QUERIES_LOGGING: 'true'
+      SLOW_QUERIES_LOGGING_THRESHOLD: 0
+      PRISMA_CONFIG: |
+        managementApiSecret: cool-secret-yo
+        port: 4466
+        databases:
+          default:
+            connector: postgres
+            host: postgres
+            port: 5432
+            user: postgres
+            password:
+            connectionLimit: 20
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
+
