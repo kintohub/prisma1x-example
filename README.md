@@ -15,7 +15,7 @@ This is also an example with `Postgres` only at the moment. but can easily be ch
 
 ## Getting setup on KintoHub
 
-0) Fork or "Create Template" from this repository.
+0) Fork or click "Use this Template" at the top right of the repository
 1) Login to kintohub
 2) Connect your git repository and make sure the forked or template you created has given access to KintoHub
 3) Create a new `Website` kintoblock
