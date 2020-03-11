@@ -4,19 +4,22 @@ services:
     build: .
     restart: always
     depends_on:
-      - "postgres"
+      - "cs-postgres"
     ports:
       - '4466:4466'
     environment:
       SLOW_QUERIES_LOGGING: 'true'
       SLOW_QUERIES_LOGGING_THRESHOLD: 0
-  postgres:
+  cs-postgres:
     image: postgres
     restart: always
     ports:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: tea
+      POSTGRES_DB: database
 volumes:
   db_data:
 
