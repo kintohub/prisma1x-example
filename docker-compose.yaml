@@ -18,7 +18,7 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: tea
+      POSTGRES_PASSWORD: creators_gate_psql_00
       POSTGRES_DB: database
 volumes:
   db_data:
